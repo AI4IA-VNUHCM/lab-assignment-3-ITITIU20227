@@ -14,18 +14,48 @@ Ex:
 
 void Ex3(int in_arr[], int n){
 	//Your codes here
-	int prev_count_increase = 0, count_increase = 0, prev_count_decrease = 0, count_decrease = 0;
-	for(int i = 0; i < n; i++) {
-		if(in_arr[i] < in_arr[i+1]) {
+	int max_increase = 1, count_increase = 1, increase_index = 0;
+	int max_decrease = 1, count_decrease = 1, decrease_index = 0;
+	for(int i = 1; i < n; i++) {
+		if(in_arr[i] > in_arr[i-1]) {
 			count_increase++;
 		} 
-	}
-	for(int j = 0; j < n; j++) {
-		if(in_arr[j] > in_arr[j+1]) {
-			count_decrease++;
+		else {
+			if(max_increase < count_increase) {
+				max_increase = count_increase;
+				increase_index = i - max_increase;
+			}
+			count_increase = 1;
 		}
 	}
-	
+	if(max_increase < count_increase) {
+		max_increase = count_increase;
+		increase_index = n - max_increase;
+	}
+	for(int j = 1; j < n; j++) {
+		if(in_arr[j] < in_arr[j-1]) {
+			count_decrease++;
+		}
+		else {
+			if(max_decrease < count_decrease) {
+				max_decrease = count_decrease;
+				decrease_index = j - max_decrease;
+			}
+			count_decrease = 1;
+		}
+	}
+	if(max_decrease < count_decrease) {
+		max_decrease = count_decrease;
+		decrease_index = n - max_decrease;
+	}
+	printf("Increase ");
+	for(int i = increase_index; i < max_increase + increase_index; i++) {
+		printf("%d ", in_arr[i]);
+	}
+	printf("Decrease ");
+	for(int j = decrease_index; j < max_decrease + decrease_index; j++) {
+		printf("%d ", in_arr[j]);
+	}
 }
 
 int main(int argc, char *argv[]) {
