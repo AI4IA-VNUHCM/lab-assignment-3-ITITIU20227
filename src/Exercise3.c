@@ -48,11 +48,11 @@ void Ex3(int in_arr[], int n){
 		max_decrease = count_decrease;
 		decrease_index = n - max_decrease;
 	}
-	printf("Increase ");
+	printf("Increasing ");
 	for(int i = increase_index; i < max_increase + increase_index; i++) {
 		printf("%d ", in_arr[i]);
 	}
-	printf("Decrease ");
+	printf("Decreasing ");
 	for(int j = decrease_index; j < max_decrease + decrease_index; j++) {
 		printf("%d ", in_arr[j]);
 	}
