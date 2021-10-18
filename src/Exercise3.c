@@ -18,29 +18,14 @@ void Ex3(int in_arr[], int n){
 	for(int i = 0; i < n; i++) {
 		if(in_arr[i] < in_arr[i+1]) {
 			count_increase++;
-			if(count_increase > prev_count_increase) {
-				prev_count_increase = count_increase;
-				count_increase = 0;
-			}
 		} 
 	}
 	for(int j = 0; j < n; j++) {
 		if(in_arr[j] > in_arr[j+1]) {
 			count_decrease++;
-			if(count_decrease > prev_count_decrease) {
-				prev_count_decrease = count_decrease;
-				count_decrease = 0;
-			}
 		}
 	}
-	printf("Increasing ");
-	for(int i = 0; i < n; i++) {
-		printf("%d ", in_arr[i]);
-	}
-	printf("Decreasing ");
-	for(int j = 0; j < n; j++) {
-		printf("%d ", in_arr[j]);
-	}
+	
 }
 
 int main(int argc, char *argv[]) {
