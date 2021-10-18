@@ -15,7 +15,7 @@ void Ex5(int arr[], int n){
 	//Your codes here
 	int j = 0;
 	for(int i = 0; i < n; i++) {
-		if(arr[i] < 0) {
+		if(arr[i] > 0) {
 			if(i != j) {
 				int temp = arr[i];
 				arr[i] = arr[j];
